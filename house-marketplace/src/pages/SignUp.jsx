@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase.conf'
+import { toast } from "react-toastify";
+
 function SignUp() {
     const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
@@ -47,6 +49,7 @@ function SignUp() {
             navigate('/')
         } catch (error) {
             console.log(error)
+            toast.error('Something went wrong')
         }
     }
 
