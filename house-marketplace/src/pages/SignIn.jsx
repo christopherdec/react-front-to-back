@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from "react-toastify";
+import OAuth from "../components/OAuth";
 
 function SignIn() {
     const [showPassword, setShowPassword] = useState(false)
@@ -77,7 +78,7 @@ function SignIn() {
                         </button>
                     </div>
                 </form>
-                {/* todo: Google OAuth component */}
+                <OAuth />
                 <Link to="/sign-up" className="registerLink">
                     Sign Up Instead
                 </Link>
