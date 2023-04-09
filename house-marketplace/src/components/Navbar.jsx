@@ -27,7 +27,7 @@ function Navbar() {
                         <OfferIcon fill={pathMatchesRoute('/offers') ? '#2c2c2c' : '#8f8f8f'}
                                    width='36px' height='36px' />
                         <p className={'navbarListItemName' + (pathMatchesRoute('/offers') ? 'Active' : '')}>
-                            Offer
+                            Offers
                         </p>
                     </li>
                     <li className='navbarListItem' onClick={() => navigate('/profile')}>
