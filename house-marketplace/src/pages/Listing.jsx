@@ -13,29 +13,29 @@ function formatPrice(price) {
 
 function Listing() {
 
-    const [listing, setListing] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [shareLinkCopied, setShareLinkCopied] = useState(false);
+  const [listing, setListing] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
 
-    const navigate = useNavigate();
-    const params = useParams();
-    const auth = getAuth();
+  const navigate = useNavigate();
+  const params = useParams();
+  const auth = getAuth();
 
-    useEffect(() => {
-        async function fetchListing() {
-            const docRef = doc(db, 'listings', params.listingId);
-            const docSnap = await getDoc(docRef);
+  useEffect(() => {
+    async function fetchListing() {
+      const docRef = doc(db, 'listings', params.listingId);
+      const docSnap = await getDoc(docRef);
 
-            if (docSnap.exists()) {
-                console.log(docSnap.data());
-                setListing(docSnap);
-                setLoading(false);
-            }
-        }
-        fetchListing();
-    }, [navigate, params.listingId])
+      if (docSnap.exists()) {
+        console.log(docSnap.data());
+        setListing(docSnap);
+        setLoading(false);
+      }
+    }
+    fetchListing();
+  }, [navigate, params.listingId])
 
-    if (loading) return <Spinner />;
+  if (loading) return <Spinner />;
 
   return (
     <main>
@@ -46,7 +46,7 @@ function Listing() {
           setShareLinkCopied(false);
         }, 1337)
       }}>
-        <img src={shareIcon} alt=''/>
+        <img src={shareIcon} alt='' />
       </div>
       {shareLinkCopied && <p className='linkCopied'>{"Link copiado!"}</p>}
       <div className="listingDetails">
@@ -76,7 +76,7 @@ function Listing() {
         {auth.currentUser?.uid !== listing.userRef && (
           <Link to={`/contact/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
             className='primaryButton'>
-              Contatar vendedor
+            Contatar vendedor
           </Link>
         )}
       </div>
