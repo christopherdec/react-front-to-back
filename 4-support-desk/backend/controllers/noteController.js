@@ -47,6 +47,8 @@ const createNote = asyncHandler(async (req, res) => {
     ticket: req.params.ticketId
   })
 
+  console.log('teste christopher', note);
+
   res.status(200).json(note)
 })
 
