@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function TicketItem({key, ticket}) {
+function TicketItem({ticket}) {
   return (
-    <div key={key} className='ticket'>
+    <div className='ticket'>
       <div>
         {new Date(ticket.createdAt).toLocaleString('pt-BR')}
       </div>
